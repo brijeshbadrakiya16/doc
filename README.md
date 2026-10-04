@@ -52,7 +52,7 @@ Organizations require secure, centralized, and controlled document governance to
 PORT=5000
 NODE_ENV=development
 MONGODB_URI=mongodb://localhost:27017/dms_db
-JWT_SECRET=super_secret_jwt_signing_key_min_32_characters
+JWT_SECRET=super_secret
 JWT_EXPIRES_IN=24h
 FRONTEND_ORIGIN=http://localhost:4200
 ```
