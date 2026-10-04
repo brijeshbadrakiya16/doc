@@ -1,0 +1,51 @@
+# Tasks - Document Management System Final Hardening & Verification
+
+- `[x]` Phase 1: Environment & Repository Initialization
+  - `[x]` Inspect environment & tools (Node.js, npm, Angular CLI, Git) - *Verified Node v22.13.0, npm 11.12.1, Angular CLI 21.2.24*
+  - `[x]` Initialize `/backend` package structure & dependencies - *Created package.json, installed express, mongoose, argon2, busboy, zod*
+  - `[x]` Initialize `/frontend` Angular application - *Created Angular v21 app with standalone routes*
+  - `[x]` Configure `.gitignore` and `.env.example` files - *Configured root and backend gitignore and env templates*
+- `[x]` Phase 2: Architecture Setup
+  - `[x]` Backend folder structure (`config`, `controllers`, `routes`, `services`, `models`, `middleware`, `validators`, `utils`, `constants`, `errors`) - *Created modular layout*
+  - `[x]` Frontend folder structure (`core`, `shared`, `features`, `guards`, `interceptors`, `services`, `models`) - *Structured Angular feature components*
+- `[x]` Phase 3: Mongoose Database Schemas & Models
+  - `[x]` Create `User` schema & indexes - *Indexed on unique email, activeFileCount default 0 max 20*
+  - `[x]` Create `Category` schema & compound indexes - *Compound unique index { userId: 1, name: 1 }*
+  - `[x]` Create `File` schema & compound unique indexes - *Compound unique index { userId: 1, checksum: 1 }*
+- `[x]` Phase 4: Backend Foundation & Security Implementation
+  - `[x]` App bootstrap (`app.js`, `server.js`) - *Express setup with health check and graceful shutdown*
+  - `[x]` Environment & DB config (`config/db.js`, `config/gridfs.js`) - *MongoDB connection & GridFS bucket provider*
+  - `[x]` Security middleware (Helmet, CORS, Rate-Limiter) - *Configured helmet, restricted CORS, rate limiters*
+  - `[x]` Error handling & custom AppError classes - *Created AppError hierarchy & global error middleware*
+  - `[x]` Auth service (Argon2 hashing, JWT sign/verify, HTTP-Only cookie support) - *Implemented signup with default categories seeding, login, me, logout*
+  - `[x]` Request validation & ObjectId middleware - *Zod validation & ObjectId route param checks*
+  - `[x]` Category CRUD & Document streaming endpoints - *Completed streaming upload, download, delete, stats*
+- `[x]` Phase 5: Frontend Foundation & UX Implementation
+  - `[x]` Angular routing & layout structures (Public vs Private) - *Guarded routes, PrivateLayoutComponent sidebar*
+  - `[x]` Global design tokens & CSS system (`styles.css`) - *Applied 4-color palette system (Slate 900, Royal Blue, Warm Orange, Off-White)*
+  - `[x]` Auth service, guard (`auth.guard.ts`), and HTTP interceptor (`auth.interceptor.ts`) - *JWT token handling & 401 redirect*
+  - `[x]` Public Landing Page component - *Interactive business landing page with features, workflow, supported formats*
+  - `[x]` Login & Signup components - *Form validation, confirmPassword matching, auth state redirect*
+  - `[x]` Protected Workspace components (Dashboard, Documents, Categories) - *Implemented metrics dashboard, document search/upload modal, category CRUD*
+- `[x]` Phase 6: Hardening & Pre-Submission Audit
+  - `[x]` Filename path traversal stripping - *Sanitized filenames with path.basename*
+  - `[x]` Search query regex injection escaping - *Escaped special regex characters in search queries*
+  - `[x]` Category ownership enforcement - *Explicit rejection if specified categoryId does not belong to user*
+  - `[x]` Connection abort cleanup - *GridFS chunk unlinking & quota rollback on aborted requests*
+  - `[x]` Create documentation suite (`README.md`, `planning.md`, `tasks.md`, `API.md`, `AI_USAGE.md`, `context.md`)
+- `[x]` Phase 7: Final Build & Verification Checklist
+  - `[x]` Install backend & frontend dependencies - *Verified npm install success*
+  - `[x]` Run backend automated tests - *Verified Jest test suite execution (PASS: 16 passed, 16 total)*
+  - `[x]` Build frontend production bundle - *Verified Angular ng build execution (Complete: 0 errors)*
+  - `[x]` Pre-submission checklist - *100% verified and passing*
+- `[x]` Phase 8: Senior UI/UX Polish, Mobile Responsiveness, & Backend Request Logging
+  - `[x]` Backend Request Logging & Request IDs - *Created non-blocking `requestLogger.js` with `req_xxxx` IDs, duration, status, and concise contextual completion messages. Included requestId in API error envelopes.*
+  - `[x]` Critical Signup Button Collapse Fix - *Resolved button shrinking bug via `white-space: nowrap; min-height: 2.75rem; width: 100% !important; display: flex !important;` and flexible nav bar constraints.*
+  - `[x]` Responsive Navigation & Mobile Sidebar - *Implemented responsive hamburger navigation drawer with backdrop overlay for both public landing page and private workspace layout.*
+  - `[x]` Password Visibility Toggles - *Added interactive eye/eye-off SVG toggles on login, signup password, and signup confirmPassword fields.*
+  - `[x]` Drag-and-Drop Document Upload Zone - *Engineered drag-and-drop dropzone with dragover/dragleave/drop events, click-to-browse, and selected file preview.*
+  - `[x]` Custom Delete Confirmation Modals - *Replaced raw browser `confirm()` prompts with accessible modal dialogs for both documents and categories.*
+  - `[x]` Skeleton Loading Shimmers - *Added skeleton UI states for dashboard metric cards, recent files, document table rows, and category list.*
+  - `[x]` Cohesive SVG Iconography & Badge System - *Standardized crisp vector icons across all pages and color-coded format badges (PDF, Word, Excel, Images).*
+  - `[x]` Frontend Unit Test Suite - *Implemented unit tests for `AppComponent`, `AuthService`, and `CategoryService` using Angular testbed & Vitest (7 tests passing).*
+  - `[x]` End-to-End Build & Test Verification - *Verified backend tests (16/16 PASS) and frontend build (`ng build` 0 errors, 0 warnings).*

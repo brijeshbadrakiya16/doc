@@ -1,0 +1,33 @@
+# Node dependencies
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Logs
+*.log
+npm-debug.log*
+
+# Angular build output
+/frontend/dist/
+
+# IDE / OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Test coverage
+coverage/
+
+###################
+backend/node_modules
+backend/.env
+backend/.env.example
+backend/.gitignore
+
+frontend/node_modules
+frontend/dist
+frontend/.gitignore
