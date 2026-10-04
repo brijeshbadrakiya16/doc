@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+        {
+            "source": "/api/(.*)",
+            "destination": "https://doc-p5r2.onrender.com/api/$1"
+        }
+    ]
+}
